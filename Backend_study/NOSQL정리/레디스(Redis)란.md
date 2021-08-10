@@ -45,3 +45,9 @@
 
 > 데이터 분실 위험을 없애주는 Master-Slave 형식으로 구성 가능
 
+
+
+**<Redis의 구조>**
+
+![img](https://miro.medium.com/max/1280/1*K8URxSP-CISf4_HkuXkPcA.jpeg)
+
