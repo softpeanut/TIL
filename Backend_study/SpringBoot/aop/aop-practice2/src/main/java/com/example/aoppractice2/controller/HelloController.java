@@ -16,9 +16,10 @@ public class HelloController {
 
     @GetMapping("/info")
     @PersonInfo
+    @PerformanceTimeRecord
     public String info() {
         System.out.println("info");
-        return "name : 김범진\n"
-                + "학번 : 1302";
+        return "name : 김범진, "
+                + "number : 1302";
     }
 }
