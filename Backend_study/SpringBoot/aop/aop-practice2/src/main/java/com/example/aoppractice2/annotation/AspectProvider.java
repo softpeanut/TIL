@@ -15,12 +15,12 @@ public class AspectProvider {
 
     @Around("@annotation(com.example.aoppractice2.annotation.PerformanceTimeRecord)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis(); // 처음
         log.info("First Log");
 
         Object proceed = joinPoint.proceed();
 
-        long executionTime = System.currentTimeMillis() - start;
+        long executionTime = System.currentTimeMillis() - start; // 마지막
 
         log.info(joinPoint.getSignature() + " executed in " + executionTime + "ms");
         return proceed;
