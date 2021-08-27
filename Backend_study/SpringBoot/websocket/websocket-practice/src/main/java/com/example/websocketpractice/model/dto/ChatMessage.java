@@ -1,4 +1,4 @@
-package com.example.websocketpractice.dto;
+package com.example.websocketpractice.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

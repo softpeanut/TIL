@@ -1,7 +1,7 @@
 package com.example.websocketpractice.model;
 
-import com.example.websocketpractice.dto.ChatMessage;
-import com.example.websocketpractice.dto.MessageType;
+import com.example.websocketpractice.model.dto.ChatMessage;
+import com.example.websocketpractice.model.dto.MessageType;
 import com.example.websocketpractice.service.ChatService;
 import lombok.Builder;
 import lombok.Getter;

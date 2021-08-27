@@ -2,7 +2,7 @@ package com.example.websocketpractice.handler;
 
 import com.example.websocketpractice.model.ChatRoom;
 import com.example.websocketpractice.service.ChatService;
-import com.example.websocketpractice.dto.ChatMessage;
+import com.example.websocketpractice.model.dto.ChatMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
