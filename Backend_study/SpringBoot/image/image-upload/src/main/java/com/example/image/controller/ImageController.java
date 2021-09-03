@@ -32,7 +32,7 @@ public class ImageController {
 
     @PostMapping("/upload/request-part")
     @ResponseStatus(HttpStatus.CREATED)
-    public String upload(@RequestPart() List<MultipartFile> files,
+    public String upload(@RequestPart(value = "file") List<MultipartFile> files,
                                @RequestPart String name,
                                @RequestPart int age) throws Exception {
 
