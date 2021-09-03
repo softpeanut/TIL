@@ -1,5 +1,6 @@
 package com.example.image.controller;
 
+import com.example.image.payload.Request;
 import com.example.image.payload.UploadRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -23,7 +25,8 @@ public class ImageController {
         log.info("files : {}", request.getMultipartFiles());
 
         for (MultipartFile file : request.getMultipartFiles()) {
-            File dest = new File("C:\\Users\\user\\Desktop\\" + request.getName());
+            String originalFilename = file.getOriginalFilename();
+            File dest = new File("C:\\Users\\user\\Desktop\\" + request.getName() + originalFilename);
             file.transferTo(dest);
         }
 
