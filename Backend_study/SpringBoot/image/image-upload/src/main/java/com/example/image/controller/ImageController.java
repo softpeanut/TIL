@@ -30,4 +30,23 @@ public class ImageController {
         return "success upload model";
     }
 
+    @PostMapping("/upload/request-part")
+    @ResponseStatus(HttpStatus.CREATED)
+    public String upload(@RequestPart() List<MultipartFile> files,
+                               @RequestPart String name,
+                               @RequestPart int age) throws Exception {
+
+        log.info("name : {}", name);
+        log.info("age : {}", age);
+        log.info("files : {}", files);
+
+        for (MultipartFile file : files) {
+            String originalFilename = file.getOriginalFilename();
+            File dest = new File("C:\\Users\\user\\Desktop\\" + originalFilename);
+            file.transferTo(dest);
+        }
+
+        return "success upload request-part";
+    }
+
 }
