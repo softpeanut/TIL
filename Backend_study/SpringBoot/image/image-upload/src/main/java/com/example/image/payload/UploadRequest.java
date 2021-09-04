@@ -11,5 +11,5 @@ public class UploadRequest {
     private String name;
     private int age;
 
-    private List<MultipartFile> multipartFiles;
+    private List<MultipartFile> files;
 }
