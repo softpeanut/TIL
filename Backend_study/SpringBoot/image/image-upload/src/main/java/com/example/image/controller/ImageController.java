@@ -1,12 +1,16 @@
 package com.example.image.controller;
 
+import com.example.image.payload.JsonRequest;
 import com.example.image.payload.UploadRequest;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Slf4j
@@ -16,7 +20,7 @@ public class ImageController {
 
     @PostMapping("/upload/model")
     @ResponseStatus(HttpStatus.CREATED)
-    public String uploadByModelAttribute(@ModelAttribute("request") UploadRequest request) throws Exception {
+    public String uploadByModelAttribute(@ModelAttribute UploadRequest request) throws Exception {
 
         log.info("name : {}", request.getName());
         log.info("age : {}", request.getAge());
@@ -48,14 +52,15 @@ public class ImageController {
         return "success upload request-part";
     }
 
-    @PostMapping("/form")
-    public String handleFormUpload(UploadRequest form) {
+    @PostMapping(path = "/form", consumes = {"multipart/form-data"})
+    public String handleFormUpload(@RequestPart(required = false) JsonRequest form,
+                                   @RequestPart(required = true) MultipartFile file) throws IOException {
 
         log.info("name : {}", form.getName());
         log.info("age : {}", form.getAge());
-        log.info("files : {}", form.getFiles());
+        log.info("file : {}", file.getOriginalFilename());
 
-        return "Ok";
+        return "success upload form";
     }
 
 }
