@@ -3,6 +3,7 @@ package com.example.redispractice.config;
 import com.example.redispractice.domain.User;
 import com.example.redispractice.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -10,6 +11,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 import java.util.Optional;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class RedisConfig implements ApplicationRunner {
@@ -38,8 +40,8 @@ public class RedisConfig implements ApplicationRunner {
         userRepository.save(user);
 
         Optional<User> byId = userRepository.findById(user.getId());
-        System.out.println(byId.get().getEmail());
-        System.out.println(byId.get().getUsername());
+        log.info(byId.get().getEmail());
+        log.info(byId.get().getUsername());
 
     }
 }
