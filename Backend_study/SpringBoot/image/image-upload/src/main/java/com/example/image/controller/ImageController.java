@@ -18,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ImageController {
 
+    // 다중 파일과 json으로 이루어진 객체 보내기
     @PostMapping("/upload/model")
     @ResponseStatus(HttpStatus.CREATED)
     public String uploadByModelAttribute(@ModelAttribute UploadRequest request) throws Exception {
@@ -35,6 +36,7 @@ public class ImageController {
         return "success upload model";
     }
 
+    // 다중파일과 json 한 번에 보내기
     @PostMapping("/upload/request-part")
     @ResponseStatus(HttpStatus.CREATED)
     public String uploadByRequestPart(@RequestPart("files") List<MultipartFile> files,
@@ -52,6 +54,7 @@ public class ImageController {
         return "success upload request-part";
     }
 
+    // json과 파일 한 번에 보내기
     @PostMapping(path = "/form", consumes = {"multipart/form-data"})
     public String handleFormUpload(@RequestPart(required = false) JsonRequest form,
                                    @RequestPart(required = true) MultipartFile file) throws IOException {
